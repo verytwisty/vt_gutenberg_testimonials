@@ -94,7 +94,8 @@ export default registerBlockType(
             	selector: 'a',
             },
             textAlignment: {
-            	type: 'string'
+            	type: 'string',
+                default: 'left',
             },
             blockAlignment: {
             	type: 'string',
@@ -106,7 +107,7 @@ export default registerBlockType(
 		  },
 		  selectControl:{
 		  	type: 'string',
-		  	default: '0',
+            default: '237'
 		  }
 		},
 		getEditWrapperProps( { blockAlignment } ) {
@@ -116,7 +117,7 @@ export default registerBlockType(
         },
 		edit: withSelect( select => {
                 return {
-                    posts: select( 'core' ).getEntityRecords( 'postType', 'vt_testimonials', { per_page: 3 } )
+                    posts: select( 'core' ).getEntityRecords( 'postType', 'vt_testimonials', { per_page: 50 } )
                 };
             } )( ( { posts, className, isSelected, setAttributes, attributes: { textAlignment, blockAlignment, colorPalette, selectControl } } ) => {
                 if ( ! posts ) {
@@ -130,14 +131,17 @@ export default registerBlockType(
                 if ( 0 === posts.length ) {
                     return <p>{ __( 'No Posts', '_vt' ) }</p>;
                 }
+
+
                 let testimonials = posts.map( ( post, index ) => {
                 	let Obj = {};
-					    Obj['value'] = index.toString(),
+                        Obj['value'] = post.id,
 					    Obj['label'] = post.title.rendered
 				    return Obj;
-                }
+                });
 
-	            );
+                // setAttributes({ selectControl: posts[0].id })
+
                 return [
 
                 	<InspectorControls>
@@ -175,15 +179,14 @@ export default registerBlockType(
                     />
                 </BlockControls>,
 
-                    <div className={ className } style={ { backgroundColor: colorPalette } }>
+                    <div className={ className } style={ { backgroundColor: colorPalette, textAlign: textAlignment } }>
+
+                    {console.log(  posts.find(x => x.id == selectControl ).content.rendered )}
+
+                    <div dangerouslySetInnerHTML={{ __html: posts.find(x => x.id == selectControl ).content.rendered }} ></div>
+
                     
-
-                    <div dangerouslySetInnerHTML={{ __html: posts[selectControl].content.rendered }} >
-
-                    </div>
-
-
-                    </div>
+                   </div>
                 ];
             } ) // end withAPIData
         , // end edit

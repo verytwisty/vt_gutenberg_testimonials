@@ -54,7 +54,7 @@ function testimonials_cpt() {
 		'capability_type'       => 'page',
 		'show_in_rest'          => true,
 		'template'              => [
-			[ 'testimonials/extendedblock', [] ]
+			[ 'testimonials/editableblock', [] ]
 		],
 		'template_lock'        => 'all',
 	);

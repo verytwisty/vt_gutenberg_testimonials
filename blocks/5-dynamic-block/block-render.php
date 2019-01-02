@@ -29,25 +29,23 @@ function register_dynamic_block() {
  * Server rendering for /blocks/examples/12-dynamic
  */
 function render_dynamic_block( $attributes ) {
-	$recent_posts = wp_get_recent_posts( [
-		'numberposts' => 3,
-		'post_status' => 'publish',
-	] );
 
-	if ( empty( $recent_posts ) ) {
-		return '<p>No posts</p>';
+	$testimonial_id = $attributes['selectControl'];
+	$bg_colour = $attributes['colorPalette'];
+	$block_align = $attributes['blockAlignment'];
+	$text_align = $attributes['textAlignment'];
+
+	$testimonial = get_post( $testimonial_id );
+
+	if ( empty( $testimonial ) ) {
+		return;
 	}
 
-	$markup = '<ul>';
+	$markup = '<div class="wp-block-testimonials-dynamicblock align' . $block_align . ' " style="background-color: ' . $bg_colour . '; text-align: ' . $text_align . ' ">';
+	$markup  .= $testimonial->post_content;
+	$markup  .= '</div>';
 
-	foreach ( $recent_posts as $post ) {
-		$post_id  = $post['ID'];
-		$markup  .= sprintf(
-			'<li><a href="%1$s">%2$s</a></li>',
-			esc_url( get_permalink( $post_id ) ),
-			esc_html( get_the_title( $post_id ) )
-		);
-	}
+	return $markup;
 
-	return print_r( $attributes );
+	// return print_r( $testimonial );
 }

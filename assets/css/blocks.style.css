@@ -130,13 +130,14 @@
   display: -ms-flexbox;
   display: flex;
   line-height: 1.2;
-  padding: 30px;
   position: relative; }
   .wp-block-testimonials-dynamicblock .image {
     -ms-flex-preferred-size: 30%;
         flex-basis: 30%; }
     .wp-block-testimonials-dynamicblock .image img {
       border-radius: 50%; }
+  .wp-block-testimonials-dynamicblock .wp-block-testimonials-editableblock {
+    background: transparent; }
   .wp-block-testimonials-dynamicblock .info {
     -ms-flex-preferred-size: 70%;
         flex-basis: 70%;

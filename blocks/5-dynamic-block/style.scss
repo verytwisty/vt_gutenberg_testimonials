@@ -2,13 +2,16 @@
 	color: #fff;
 	display: flex;
 	line-height: 1.2;
-	padding: 30px;
+	// padding: 30px;
 	position: relative;
 	.image{
 		flex-basis: 30%;
 		img{
 			border-radius: 50%;
 		}
+	}
+	.wp-block-testimonials-editableblock{
+		background: transparent;
 	}
 	.info{
 		flex-basis: 70%;

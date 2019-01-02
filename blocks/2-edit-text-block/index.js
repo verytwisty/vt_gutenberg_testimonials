@@ -6,7 +6,7 @@ import icon from './icon';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { AlignmentToolbar, RichText } = wp.editor;
+const { RichText } = wp.editor;
 
 /* Register Block */
 
