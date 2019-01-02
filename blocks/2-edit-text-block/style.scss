@@ -1,0 +1,40 @@
+.wp-block-testimonials-title{
+	background-color: #FF6F61;
+	color: #fff;
+	display: flex;
+	line-height: 1.2;
+	padding: 30px;
+	position: relative;
+	.image{
+		flex-basis: 30%;
+		img{
+			border-radius: 50%;
+		}
+	}
+	.info{
+		flex-basis: 70%;
+		padding: 0 0 0 80px;
+		h2{
+			color: #fff;
+			margin-top: 0;
+			margin-bottom: 0.8rem;
+			text-transform: uppercase;
+			&:before{
+				display: none;
+			}
+		}
+		h3{
+			color: #184A47;
+			font-size: 1.2em;
+			margin-top: 0;
+
+		}
+		p{
+			line-height: 1.4;
+		}
+		a{
+			color: #184A47;
+		}
+	}
+
+}
