@@ -11,7 +11,7 @@
  * Plugin URI:  https://github.com/verytwisty/vt_gutenberg_testimonials
  * Description: A Testimonials Plugin inspired by <a href="https://gutenberg.courses/development">Zac Gordon's Gutenberg Development Course</a> for the MWUG talk.
  * Version:     1.0
- * Author:      Belinda Mustoe
+ * Author:      Belinda Mustoe (verytwisty)
  * Author URI:  https://verytwisty.com
  * Text Domain: vt_testimonials
  * Domain Path: /languages
