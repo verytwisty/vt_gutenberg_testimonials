@@ -31,7 +31,7 @@ function register_dynamic_block() {
 function render_dynamic_block( $attributes ) {
 
 	$testimonial_id = $attributes['selectControl'];
-	$bg_colour = $attributes['colorPalette'];
+	$bg_colour = $attributes['colorPalette'] ? $attributes['colorPalette'] : '#FF6F61';
 	$block_align = $attributes['blockAlignment'];
 	$text_align = $attributes['textAlignment'];
 
@@ -41,11 +41,11 @@ function render_dynamic_block( $attributes ) {
 		return;
 	}
 
-	$markup = '<div class="wp-block-testimonials-dynamicblock align' . $block_align . ' " style="background-color: ' . $bg_colour . '; text-align: ' . $text_align . ' ">';
+	$markup = '<div class="wp-block-testimonials-dynamicblock txt-align-' . $text_align . ' align' . $block_align . ' " style="background-color: ' . $bg_colour . '; text-align:  ">';
 	$markup  .= $testimonial->post_content;
 	$markup  .= '</div>';
 
 	return $markup;
 
-	// return print_r( $testimonial );
+	//return print_r( $attributes );
 }

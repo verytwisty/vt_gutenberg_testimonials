@@ -51,48 +51,6 @@ export default registerBlockType(
 
 		],
 		attributes: {
-			title: {
-				type: 'array',
-				source: 'children',
-				selector: 'h2',
-			},
-			jobTitle:{
-				type: 'array',
-				source: 'children',
-				selector: 'h3',
-			},
-			text: {
-				type: 'array',
-				source: 'children',
-				selector: '.text',
-			},
-			imgURL: {
-                type: 'string',
-                source: 'attribute',
-                attribute: 'src',
-                selector: 'img',
-            },
-            imgID: {
-                type: 'number',
-            },
-            imgAlt: {
-                type: 'string',
-                source: 'attribute',
-                attribute: 'alt',
-                selector: 'img',
-            },
-            linkText: {
-            	type: 'string',
-            	source: 'text',
-            	selector: 'a',
-            	default: 'Add website link here'
-            },
-            url: {
-            	type: 'string',
-            	source: 'attribute',
-            	attribute: 'href',
-            	selector: 'a',
-            },
             textAlignment: {
             	type: 'string',
                 default: 'left',
@@ -107,7 +65,6 @@ export default registerBlockType(
 		  },
 		  selectControl:{
 		  	type: 'string',
-            default: '237'
 		  }
 		},
 		getEditWrapperProps( { blockAlignment } ) {
@@ -140,7 +97,8 @@ export default registerBlockType(
 				    return Obj;
                 });
 
-                // setAttributes({ selectControl: posts[0].id })
+                console.log('eee');
+                console.log(selectControl);
 
                 return [
 
@@ -179,11 +137,27 @@ export default registerBlockType(
                     />
                 </BlockControls>,
 
-                    <div className={ className } style={ { backgroundColor: colorPalette, textAlign: textAlignment } }>
+                    <div 
+                    className={ classnames(
+                      `txt-align${textAlignment}`, className,
+                    )}
+                    style={ { backgroundColor: colorPalette, textAlign: textAlignment } }
+                    >
 
-                    {console.log(  posts.find(x => x.id == selectControl ).content.rendered )}
+                    { ! selectControl ? (
 
-                    <div dangerouslySetInnerHTML={{ __html: posts.find(x => x.id == selectControl ).content.rendered }} ></div>
+                        setAttributes({ 
+                            selectControl: posts[0].id,
+
+                        })
+
+                        
+                        ):(
+
+                            <div dangerouslySetInnerHTML={{ __html: posts.find(x => x.id == selectControl ).content.rendered }} ></div>
+                        )
+
+                    }
 
                     
                    </div>
@@ -191,18 +165,8 @@ export default registerBlockType(
             } ) // end withAPIData
         , // end edit
 		save: props => {
-			const { attributes: { textAlignment, blockAlignment, colorPalette }, className } = props;
-			return (
-				<div
-				className={ classnames(
-                  `align${blockAlignment}`,
-                  	className,
-              	)}
-				style={ { backgroundColor: colorPalette } }
-              	>
-
-				</div>
-			);
+			const { attributes: { textAlignment, blockAlignment, colorPalette, selectControl }, className } = props;
+			return null;
 
 		},
 	},

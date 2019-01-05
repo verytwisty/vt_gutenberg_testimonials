@@ -39,4 +39,11 @@
 		}
 	}
 
+	&.txt-align-center .info{
+			text-align: center;
+		}
+	&.txt-align-right .info{
+			text-align: right;
+		}
+
 }
