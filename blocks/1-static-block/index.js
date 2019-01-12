@@ -24,18 +24,20 @@ export default registerBlockType(
 		],
 		edit: props => {
 			const { className, isSelected } = props;
+			console.log( props );
 			return (
 				<div className={ className }>
 					<div className="image">
-						<img src="/wp-content/plugins/vt_testimonials/assets/images/austin-distel-675050-unsplash.jpg" />
+						<img src="/wp-content/plugins/vt_testimonials/assets/images/David-Brent.jpg" />
 					</div>
 					<div className="info">
-						<h2>Joe Bloggs</h2>
-						<h3>Superstar CEO at <a href="https://dog.ceo/">dog.ceo</a></h3>
+						<h2>David Brent</h2>
+						<h3>General Manager</h3>
 						<div className="text">
-							<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. </p>
-							<p>Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. </p>
+							<p>People see me, and they see the suit, and they go: 'you're not fooling anyone', they know I'm rock and roll through and through.</p> 
+							<p>But you know that old thing, live fast, die young? Not my way. Live fast, sure, live too bloody fast sometimes, but die young? Die old.</p>
 						</div>
+						<a href="https://www.wernham-hogg-limited.com" className="website">Wernham Hogg</a>
 					</div>
 					{
 						isSelected && (
@@ -50,15 +52,16 @@ export default registerBlockType(
 			return (
 				<div className={ className }>
 					<div className="image">
-						<img src="/wp-content/plugins/vt_testimonials/assets/images/austin-distel-675050-unsplash.jpg" />
+						<img src="/wp-content/plugins/vt_testimonials/assets/images/David-Brent.jpg" />
 					</div>
 					<div className="info">
-						<h2>Joe Bloggs</h2>
-						<h3>Superstar CEO at <a href="https://dog.ceo/">dog.ceo</a></h3>
+						<h2>David Brent</h2>
+						<h3>General Manager</h3>
 						<div className="text">
-							<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. </p>
-							<p>Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. </p>
+							<p>People see me, and they see the suit, and they go: 'you're not fooling anyone', they know I'm rock and roll through and through.</p> 
+							<p>But you know that old thing, live fast, die young? Not my way. Live fast, sure, live too bloody fast sometimes, but die young? Die old.</p>
 						</div>
+						<a href="https://www.wernham-hogg-limited.com" className="website">Wernham Hogg</a>
 					</div>
 				</div>
 			);
