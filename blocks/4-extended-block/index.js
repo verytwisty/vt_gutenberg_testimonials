@@ -139,8 +139,6 @@ export default registerBlockType(
 				          ]}
 				        />
 
-				        <p>Hello World</p>
-
 				</InspectorControls>,
 
 					<BlockControls>

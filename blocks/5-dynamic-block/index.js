@@ -97,9 +97,6 @@ export default registerBlockType(
 				    return Obj;
                 });
 
-                console.log('eee');
-                console.log(selectControl);
-
                 return [
 
                 	<InspectorControls>
